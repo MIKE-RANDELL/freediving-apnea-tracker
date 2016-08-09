@@ -10,4 +10,7 @@
   Password:<input type="text" name="diver[password]"></input>
   <br><br>
   <input type="submit" value="Sign Up">
-</form>
+</form><br>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>

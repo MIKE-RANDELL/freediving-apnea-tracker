@@ -7,11 +7,15 @@
   <input type="submit" value="Submit">
 </form><br><br>
 
-<h3>Dynamic</h3>
+<h3>Dynamic:</h3>
 <form method="POST" action="/add_times/dynamic">
   Max distance: <input type="text" name="dynamic[max_distance]"></input><br>
   State: <input type="text" name="dynamic[overall_state]"></input>
   <input type="submit" value="Submit">
 </form><br><br><br>
 
-<a href="/log">View log</a>
+<a href="/log">View log</a><br><br><br>
+
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>

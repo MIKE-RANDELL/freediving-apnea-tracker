@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
       session[:id] = @diver.id
       redirect "/add_times"
     else
-      flash[:message] = "Please fill out a name + password"
+      flash[:message] = "Message: Please fill out a name + password"
       redirect "/signup"
     end
   end
@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
       redirect "/add_times"
     else
       redirect "/login"
-      flash[:message] = "Wrong name/password combination. Please try again or signup!"
+      flash[:message] = "Message: Wrong name/password combination. Please try again or signup!"
     end
   end
 
@@ -51,12 +51,27 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/add_times/static" do
-    @static = Static.create(params[:static])
-    
+    if !params[:static][:max_time].blank? || !params[:static][:overall_state].blank?
+      @static = Static.create(params[:static])
+      @diver = Diver.find(session[:id])
+      @diver.statics << @static
+      @diver.save
+    else
+      flash[:message] = "Message: Please fill in both static time and state, both are important."
+      redirect "/add_times"
+    end
   end
 
   post "/add_times/dynamic" do
-    @dynamic = Dynamic.create(params[:dynamic])
+    if !params[:dynamic][:distance].blank? || !params[:dynamic][:overall_state].blank?
+      @dynamic = Dynamic.create(params[:dynamic])
+      @diver = Diver.find(session[:id])
+      @diver.dynamics << @dynamic
+      @diver.save
+    else
+      flash[:message] = "Message: Please fill in both dynamic distance and state, both are important."
+      redirect "/add_times"
+    end
   end
 
   get "/logout" do

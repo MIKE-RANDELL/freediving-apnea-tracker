@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809125058) do
+ActiveRecord::Schema.define(version: 20160809152051) do
 
   create_table "divers", force: :cascade do |t|
     t.string  "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160809125058) do
   end
 
   create_table "dynamics", force: :cascade do |t|
-    t.float    "max_time"
+    t.float    "max_distance"
     t.string   "overall_state"
     t.datetime "created_at"
     t.datetime "updated_at"

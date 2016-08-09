@@ -1,0 +1,17 @@
+<h1>Add a static or dynamic max!</h1><br>
+
+<h3>Static:</h3>
+<form method="POST" action="/add_times/static">
+  Max time: <input type="text" name="static[max_time]"></input><br>
+  State: <input type="text" name="static[overall_state]"></input>
+  <input type="submit" value="Submit">
+</form><br><br>
+
+<h3>Dynamic</h3>
+<form method="POST" action="/add_times/dynamic">
+  Max distance: <input type="text" name="dynamic[max_distance]"></input><br>
+  State: <input type="text" name="dynamic[overall_state]"></input>
+  <input type="submit" value="Submit">
+</form><br><br><br>
+
+<a href="/log">View log</a>

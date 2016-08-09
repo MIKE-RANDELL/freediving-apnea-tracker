@@ -1,0 +1,13 @@
+<h1>Signup!</h1>
+<form method="POST" action="/signup">
+  Name:<input type="text" name="diver[name]"></input>
+  <br><br>
+  Years of experience:
+  <%10.times do |years|%>
+    <input type="checkbox" value="<%=years + 1%>" name="diver[experience]"><%=years + 1%> years</input>
+  <%end%>
+  <br><br>
+  Password:<input type="text" name="diver[password]"></input>
+  <br><br>
+  <input type="submit" value="Sign Up">
+</form>

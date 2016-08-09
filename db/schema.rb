@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809124300) do
+ActiveRecord::Schema.define(version: 20160809125058) do
 
   create_table "divers", force: :cascade do |t|
     t.string  "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160809124300) do
     t.string   "overall_state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "diver_id"
   end
 
   create_table "statics", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160809124300) do
     t.string   "overall_state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "diver_id"
   end
 
 end

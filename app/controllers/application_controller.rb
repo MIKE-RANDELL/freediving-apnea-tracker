@@ -57,6 +57,7 @@ class ApplicationController < Sinatra::Base
       @diver = Diver.find(session[:id])
       @diver.statics << @static
       @diver.save
+      flash[:message] = "<b>Message:</b> Time added successfully!"
       redirect "/add_times"
     else
       flash[:message] = "Message: Please fill in both static time and state, both are important."
@@ -70,6 +71,7 @@ class ApplicationController < Sinatra::Base
       @diver = Diver.find(session[:id])
       @diver.dynamics << @dynamic
       @diver.save
+      flash[:message] = "Message: Time added successfully!"
       redirect "/add_times"
     else
       flash[:message] = "Message: Please fill in both dynamic distance and state, both are important."
@@ -99,7 +101,7 @@ class ApplicationController < Sinatra::Base
       redirect "/log/#{session[:id]}"
     end
   end
-  
+
   get "/logout" do
     session.clear
     redirect "/login"

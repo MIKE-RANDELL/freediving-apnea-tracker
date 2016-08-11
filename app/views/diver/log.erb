@@ -1,10 +1,12 @@
 <h1><%=@diver.name%> LOGBOOK:</h1>
 
+
 <h3>Experience: <%=@diver.experience%> year(s)</h3> <a href="/experience/<%=@diver.id%>/edit">UPDATE EXPERIENCE</a>
-<br>
+
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
+
 <br><br><br>
 
 <h2>Statics:</h2>
@@ -24,3 +26,6 @@
   State: <%=dynamic.overall_state%>
   <br><br>
 <%end%>
+<br><br>
+<a href="/add_times">ADD TIMES</a><br><br>
+<a href="/logout">LOGOUT</a>

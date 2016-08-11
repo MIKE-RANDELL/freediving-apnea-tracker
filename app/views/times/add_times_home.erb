@@ -1,5 +1,7 @@
 <h1>Add a static or dynamic max!</h1><br>
-
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <h3>Static:</h3>
 <form method="POST" action="/add_times/static">
   Max time: <input type="text" name="static[max_time]"></input> minutes (format: 3.30 - for 3 mins 30 secs)<br>
@@ -12,10 +14,9 @@
   Max distance: <input type="text" name="dynamic[max_distance]"></input> meters<br>
   State: <input type="text" name="dynamic[overall_state]"></input>
   <input type="submit" value="Submit">
-</form><br><br><br>
+</form><br><br>
 
-<a href="/log/<%=@diver.id%>">View Logbook</a><br><br><br>
 
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<a href="/log/<%=@diver.id%>">VIEW LOGBOOK</a>
+<br><br>
+<a href="/logout">LOGOUT</a><br><br><br>

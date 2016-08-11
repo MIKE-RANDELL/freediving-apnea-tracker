@@ -82,6 +82,24 @@ class ApplicationController < Sinatra::Base
     erb :"/diver/log"
   end
 
+  get "/experience/:id/edit" do
+    @diver = Diver.find(params[:id])
+    erb :"/diver/edit_experience"
+  end
+
+  patch "/experience/:id/edit" do
+    @diver = Diver.find(session[:id])
+
+    if @diver.id.to_s == params[:id]
+      @diver.experience = params[:diver][:experience]
+      @diver.save
+      redirect "/log/#{session[:id]}"
+    else
+      flash[:message] = "<b>Message:</b> You can only update your own experience."
+      redirect "/log/#{session[:id]}"
+    end
+  end
+  
   get "/logout" do
     session.clear
     redirect "/login"

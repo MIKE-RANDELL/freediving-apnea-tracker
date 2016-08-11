@@ -1,0 +1,26 @@
+<h1><%=@diver.name%> LOGBOOK:</h1>
+
+<h3>Experience: <%=@diver.experience%> year(s)</h3> <a href="/experience/<%=@diver.id%>/edit">UPDATE EXPERIENCE</a>
+<br>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<br><br><br>
+
+<h2>Statics:</h2>
+<%@diver.statics.each do |static|%>
+  <b><u>Date: <%=static.created_at.strftime("%Y-%m-%d")%></u></b><br>
+  Max Time: <%=static.max_time%><br>
+  State: <%=static.overall_state%>
+  <br><br>
+<%end%>
+
+<br><br>
+
+<h2>Dynamics:</h2>
+<%@diver.dynamics.each do |dynamic|%>
+  <b>Date: <%=dynamic.created_at.strftime("%Y-%m-%d")%></b><br>
+  Max Distance: <%=dynamic.max_distance%><br>
+  State: <%=dynamic.overall_state%>
+  <br><br>
+<%end%>

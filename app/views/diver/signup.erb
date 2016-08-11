@@ -4,7 +4,7 @@
   <br><br>
   Years of experience:
   <%10.times do |years|%>
-    <input type="checkbox" value="<%=years + 1%>" name="diver[experience]"><%=years + 1%> years</input>
+    <input type="radio" value="<%=years + 1%>" name="diver[experience]"><%=years + 1%> years</input>
   <%end%>
   <br><br>
   Password:<input type="text" name="diver[password]"></input>

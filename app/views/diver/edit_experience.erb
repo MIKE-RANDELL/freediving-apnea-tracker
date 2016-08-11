@@ -1,0 +1,10 @@
+<h1>Hello, <%=@diver.name%>! Update your experience:</h1>
+<form method="POST" action="/experience/<%=@diver.id%>/edit">
+  <input type="hidden" value="patch" name="_method">
+  <%10.times do |years|%>
+    <input type="radio" value="<%=years + 1%>" name="diver[experience]"
+    <%='checked' if @diver.experience == years + 1%>><%=years + 1%> years</input>
+  <%end%>
+  <br><br>
+  <input type="submit" value="Update">
+</form>

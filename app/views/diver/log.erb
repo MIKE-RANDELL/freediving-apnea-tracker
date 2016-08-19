@@ -9,17 +9,17 @@
 
 <br><br><br>
 
-<h2>Statics:</h2>
+<h2><u>Statics:</u></h2>
 <%@diver.statics.each do |static|%>
   <b><u>Date: <%=static.created_at.strftime("%Y-%m-%d")%></u></b><br>
-  Max Time: <%=static.max_time%><br>
+  Max Time: <%if static.max_time.is_a?(Float)||static.max_time.is_a?(Fixnum)%><%=static.max_time%><%else%><%=static.max_time.strftime("%l:%M")%><%end%><br>
   State: <%=static.overall_state%>
   <br><br>
 <%end%>
 
 <br><br>
 
-<h2>Dynamics:</h2>
+<h2><u>Dynamics:</u></h2>
 <%@diver.dynamics.each do |dynamic|%>
   <b>Date: <%=dynamic.created_at.strftime("%Y-%m-%d")%></b><br>
   Max Distance: <%=dynamic.max_distance%><br>

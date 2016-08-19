@@ -91,7 +91,7 @@ class ApplicationController < Sinatra::Base
 
   patch "/experience/:id/edit" do
     @diver = Diver.find(session[:id])
-
+    
     if @diver.id.to_s == params[:id]
       @diver.experience = params[:diver][:experience]
       @diver.save
@@ -106,4 +106,5 @@ class ApplicationController < Sinatra::Base
     session.clear
     redirect "/login"
   end
+
 end
